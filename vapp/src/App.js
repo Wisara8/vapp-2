@@ -1,37 +1,41 @@
 import React from 'react';
 import { Tabs, Tab, AppBar } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import Box from '@material-ui/core/Box';
 
 
 function App() {
+  const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const handleTabs = (e, value) => {
     console.log(value);
     setValue(value);
   };
   return (
-    <div>
+    <div className={classes.root}>
       <h1>
         Off Grid Customs
       </h1>
-      <AppBar position="static">
-        <Tabs
-          value={value}
-          onChange={handleTabs}
-          variant="scrollable"
-        // orientation="vertical"
-        >
-          <Tab label="General Info" />
-          <Tab label="Windows/Vents" />
-          <Tab label="Shell" />
-          <Tab label="Exterior" />
-          <Tab label="Electrical" />
-          <Tab label="Mech Heat/AC" />
-          <Tab label="Plumbing Water" />
-          <Tab label="Furniture/Appliances" />
-          <Tab label="Cabinets + Trim" />
-          <Tab label="Extras" />
-        </Tabs>
-      </AppBar>
+      {/* <AppBar position="static"> */}
+      <Tabs
+        value={value}
+        onChange={handleTabs}
+        variant="scrollable"
+        orientation="vertical"
+        className={classes.tabs}
+      >
+        <Tab label="General Info" />
+        <Tab label="Windows/Vents" />
+        <Tab label="Shell" />
+        <Tab label="Exterior" />
+        <Tab label="Electrical" />
+        <Tab label="Mech Heat/AC" />
+        <Tab label="Plumbing Water" />
+        <Tab label="Furniture/Appliances" />
+        <Tab label="Cabinets + Trim" />
+        <Tab label="Extras" />
+      </Tabs>
+      {/* </AppBar> */}
       <TabPanel value={value} index={0}>Item 1 Detail</TabPanel>
       <TabPanel value={value} index={1}>Item 2 Detail</TabPanel>
       <TabPanel value={value} index={2}>Item 3 Detail</TabPanel>
@@ -47,8 +51,20 @@ function TabPanel(props) {
   return (<div>
     {
       value === index && (
-        <h1>{children}</h1>
+        <Box p={3}>{children}</Box>
       )
     }
   </div>)
 }
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.paper,
+    display: 'flex',
+    height: 224,
+  },
+  tabs: {
+    borderRight: `1px solid ${theme.palette.divider}`,
+  },
+}));
