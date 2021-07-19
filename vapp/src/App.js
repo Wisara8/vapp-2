@@ -14,10 +14,22 @@ function App() {
         Off Grid Customs
       </h1>
       <AppBar position="static">
-        <Tabs value={value} onChange={handleTabs}>
-          <Tab label="Item 1" />
-          <Tab label="Item 2" />
-          <Tab label="Item 3" />
+        <Tabs
+          value={value}
+          onChange={handleTabs}
+          variant="scrollable"
+        // orientation="vertical"
+        >
+          <Tab label="General Info" />
+          <Tab label="Windows/Vents" />
+          <Tab label="Shell" />
+          <Tab label="Exterior" />
+          <Tab label="Electrical" />
+          <Tab label="Mech Heat/AC" />
+          <Tab label="Plumbing Water" />
+          <Tab label="Furniture/Appliances" />
+          <Tab label="Cabinets + Trim" />
+          <Tab label="Extras" />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>Item 1 Detail</TabPanel>
