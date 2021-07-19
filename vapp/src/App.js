@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, Tab, AppBar } from '@material-ui/core';
+import { Tabs, Tab, AppBar, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 
@@ -13,10 +13,16 @@ function App() {
   };
   return (
     <div className={classes.root}>
-      <h1>
-        Off Grid Customs
-      </h1>
-      {/* <AppBar position="static"> */}
+      <AppBar position="absolute">
+        <Toolbar>
+          <Typography>
+            Off Grid Customs
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      {/* <Toolbar /> */}
+      {/* <div className={classes.down} /> */}
+
       <Tabs
         value={value}
         onChange={handleTabs}
@@ -35,7 +41,6 @@ function App() {
         <Tab label="Cabinets + Trim" />
         <Tab label="Extras" />
       </Tabs>
-      {/* </AppBar> */}
       <TabPanel value={value} index={0}>Item 1 Detail</TabPanel>
       <TabPanel value={value} index={1}>Item 2 Detail</TabPanel>
       <TabPanel value={value} index={2}>Item 3 Detail</TabPanel>
@@ -67,4 +72,5 @@ const useStyles = makeStyles((theme) => ({
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
   },
+  down: { offset: theme.mixins.toolbar }
 }));
