@@ -12,39 +12,39 @@ function App() {
     setValue(value);
   };
   return (
-    <div className={classes.root}>
-      <AppBar position="absolute">
+    <div >
+      <AppBar position="fixed">
         <Toolbar>
           <Typography>
             Off Grid Customs
           </Typography>
         </Toolbar>
       </AppBar>
-      {/* <Toolbar /> */}
+      <Toolbar />
       {/* <div className={classes.down} /> */}
-
-      <Tabs
-        value={value}
-        onChange={handleTabs}
-        variant="scrollable"
-        orientation="vertical"
-        className={classes.tabs}
-      >
-        <Tab label="General Info" />
-        <Tab label="Windows/Vents" />
-        <Tab label="Shell" />
-        <Tab label="Exterior" />
-        <Tab label="Electrical" />
-        <Tab label="Mech Heat/AC" />
-        <Tab label="Plumbing Water" />
-        <Tab label="Furniture/Appliances" />
-        <Tab label="Cabinets + Trim" />
-        <Tab label="Extras" />
-      </Tabs>
-      <TabPanel value={value} index={0}>Item 1 Detail</TabPanel>
-      <TabPanel value={value} index={1}>Item 2 Detail</TabPanel>
-      <TabPanel value={value} index={2}>Item 3 Detail</TabPanel>
-
+      <div className={classes.root}>
+        <Tabs
+          value={value}
+          onChange={handleTabs}
+          variant="scrollable"
+          orientation="vertical"
+          className={classes.tabs}
+        >
+          <Tab label="General Info" />
+          <Tab label="Windows/Vents" />
+          <Tab label="Shell" />
+          <Tab label="Exterior" />
+          <Tab label="Electrical" />
+          <Tab label="Mech Heat/AC" />
+          <Tab label="Plumbing Water" />
+          <Tab label="Furniture/Appliances" />
+          <Tab label="Cabinets + Trim" />
+          <Tab label="Extras" />
+        </Tabs>
+        <TabPanel value={value} index={0}>Item 1 Detail</TabPanel>
+        <TabPanel value={value} index={1}>Item 2 Detail</TabPanel>
+        <TabPanel value={value} index={2}>Item 3 Detail</TabPanel>
+      </div>
     </div>
   );
 }
