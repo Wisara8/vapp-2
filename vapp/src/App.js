@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, Tab, AppBar, Toolbar, Typography } from '@material-ui/core';
+import { Tabs, Tab, AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 
@@ -12,16 +12,18 @@ function App() {
     setValue(value);
   };
   return (
-    <div >
+    <div >c
       <AppBar position="fixed">
         <Toolbar>
           <Typography>
             Off Grid Customs
           </Typography>
+          <IconButton edge="end">
+            $120,000
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Toolbar />
-      {/* <div className={classes.down} /> */}
       <div className={classes.root}>
         <Tabs
           value={value}
