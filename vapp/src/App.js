@@ -19,7 +19,7 @@ function App() {
             Off Grid Customs
           </Typography>
           <IconButton edge="end">
-            $120,000
+            $120,321
           </IconButton>
         </Toolbar>
       </AppBar>
