@@ -90,8 +90,6 @@ const ChoiceList = ({ choices, updateSelected }) => {
     <div>
       {
         choices.map(choice => (
-          // TODO: `updateState` is not defined in this scope
-          // ...Well, it is, but it likely won't be when we fix a different thing.
           <button onClick={() => updateSelected(choice.label)}>{choice.label} (${choice.price})</button>
         ))
       }
