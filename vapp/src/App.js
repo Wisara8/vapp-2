@@ -85,18 +85,20 @@ function computePrice(selected, choices) {
     return acc;
   }, 0);
 }
-const ChoiceList = ({ choices, updateSelected }) => {
+// Added className that renders toggles state.
+const ChoiceList = ({ choices, updateSelected, updateClass }) => {
   return (
     <div>
       {
         choices.map(choice => (
-          <button onClick={() => updateSelected(choice.label)}>{choice.label} (${choice.price})</button>
+          <button onClick={() => updateSelected(choice.label)} className={updateClass(choice.label)}>
+            {choice.label} (${choice.price})
+          </button>
         ))
       }
     </div>
   )
 }
-
 
 const TotalPrice = ({ price }) => <h2>${price}</h2>
 
@@ -117,18 +119,27 @@ const __choices = [
 
 //APP compononent look overhere----------
 const App = ({ choices }) => {
-  const initialSelected = choices.reduce((acc, choice) => ({ ...acc, [choice.label]: false }), {});
+  const initialSelected = choices.reduce((acc, choice) =>
+    ({ ...acc, [choice.label]: false }), {});
   const [selected, setSelected] = React.useState(initialSelected);
   const price = computePrice(selected, choices);
 
   function updateSelected(label) {
     setSelected({ ...selected, [label]: !selected[label] });
   }
+  //new code
+  function updateClass(label) {
+    if (selected[label] === false) {
+      return "active";
+    } else {
+      return "inactive";
+    }
+  }
 
   return (
     <main>
       <TotalPrice price={price} />
-      <ChoiceList choices={choices} updateSelected={updateSelected} />
+      <ChoiceList choices={choices} updateSelected={updateSelected} updateClass={updateClass} />
       <p>Choices: {JSON.stringify(choices)}</p>
       <p>Selected: {JSON.stringify(selected)}</p>
       <p>{price}</p>
@@ -136,4 +147,4 @@ const App = ({ choices }) => {
   )
 };
 
-ReactDOM.render(<App choices={__choices} />, document.getElementById('app'))
+// ReactDOM.render(<App choices={__choices} />, document.getElementById('app'))
