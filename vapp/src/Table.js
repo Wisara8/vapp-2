@@ -30,34 +30,30 @@ const __waterHeaters = {
 
 const TableHeader = ({ tableHeadData }) => {
   return (
-    <div>
-      <thead>
-        <tr>
-          {
-            tableHeadData.map(header => (
-              <th>{header}</th>
-            )
-            )
-          }
-        </tr>
-      </thead>
-    </div>
+    <thead>
+      <tr>
+        {
+          tableHeadData.map(header => (
+            <th>{header}</th>
+          )
+          )
+        }
+      </tr>
+    </thead>
   );
 }
 
 const TableRows = ({ waterHeater }) => {
   return (
-    <div>
-      <tbody>
-        {
-          waterHeater.map(heater => (
-            <tr>
-              <TableData heaterData={heater} />
-            </tr>)
-          )
-        }
-      </tbody>
-    </div>
+    <tbody>
+      {
+        waterHeater.map(heater => (
+          <tr>
+            <TableData heaterData={heater} />
+          </tr>)
+        )
+      }
+    </tbody>
   )
 }
 
@@ -86,10 +82,10 @@ const App = ({ waterHeater }) => {
   getHeaders(waterHeaterItem);
 
   return (
-    <main>
+    <table>
       <TableHeader tableHeadData={tableHeadData} />
       <TableRows waterHeater={waterHeater} />
-    </main>
+    </table>
   )
 };
 
